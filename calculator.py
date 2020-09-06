@@ -8,7 +8,13 @@ def click(event):
         if scvalue.get().isdigit():
             value= int(scvalue.get())
         else:
-            value=eval(screen.get())
+            try:
+                value=eval(screen.get())
+
+            except Exception as e:
+                print(e)
+                value="Error"
+
         scvalue.set(value)
         screen.update()
     elif text=="C":
